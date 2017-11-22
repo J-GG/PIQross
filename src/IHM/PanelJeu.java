@@ -5,18 +5,19 @@ import Données.Grille;
 import Données.GrilleObservateur;
 import Données.Options;
 import Données.Options.Difficulte;
+
+import javax.swing.*;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.net.MalformedURLException;
-import javax.swing.*;
 
 /**
- * Conteneur affichant une partie de pIQcross.
+ * Conteneur affichant une partie de pIQross.
  *
- * @author J-GG
+ * @author Genest
  */
 public class PanelJeu extends JPanel {
 
@@ -45,7 +46,7 @@ public class PanelJeu extends JPanel {
     /**
      * Couleur utilisée pour cliquer sur la grille.
      */
-    private int couleurChoisie;
+    private Case.Couleur couleurChoisie;
 
     /*
      * JLabels contenant les images des couleurs utilisées pour la grille.
@@ -140,35 +141,35 @@ public class PanelJeu extends JPanel {
         lblImagePotMarron = new JLabel("");
         lblImageGomme = new JLabel("");
 
-        if (grille.getListeCouleurs().contains(Case.BLANC)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.BLANC)) {
             lblImagePotBlanc.setIcon(new ImageIcon("images/potBlanc.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.BLEU)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.BLEU)) {
             lblImagePotBleu.setIcon(new ImageIcon("images/potBleu.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.ROUGE)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.ROUGE)) {
             lblImagePotRouge.setIcon(new ImageIcon("images/potRouge.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.ORANGE)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.ORANGE)) {
             lblImagePotOrange.setIcon(new ImageIcon("images/potOrange.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.JAUNE)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.JAUNE)) {
             lblImagePotJaune.setIcon(new ImageIcon("images/potJaune.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.VERT)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.VERT)) {
             lblImagePotVert.setIcon(new ImageIcon("images/potVert.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.ROSE)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.ROSE)) {
             lblImagePotRose.setIcon(new ImageIcon("images/potRose.png"));
         }
 
-        if (grille.getListeCouleurs().contains(Case.MARRON)) {
+        if (grille.getListeCouleurs().contains(Case.Couleur.MARRON)) {
             lblImagePotMarron.setIcon(new ImageIcon("images/potMarron.png"));
         }
 
@@ -315,7 +316,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.BLANC);
+                couleurSelectionnee(Case.Couleur.BLANC);
             }
 
             @Override
@@ -335,7 +336,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.BLEU);
+                couleurSelectionnee(Case.Couleur.BLEU);
             }
 
             @Override
@@ -355,7 +356,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.JAUNE);
+                couleurSelectionnee(Case.Couleur.JAUNE);
             }
 
             @Override
@@ -375,7 +376,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.ORANGE);
+                couleurSelectionnee(Case.Couleur.ORANGE);
             }
 
             @Override
@@ -395,7 +396,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.ROUGE);
+                couleurSelectionnee(Case.Couleur.ROUGE);
             }
 
             @Override
@@ -415,7 +416,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.VERT);
+                couleurSelectionnee(Case.Couleur.VERT);
             }
 
             @Override
@@ -435,7 +436,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.ROSE);
+                couleurSelectionnee(Case.Couleur.ROSE);
             }
 
             @Override
@@ -455,7 +456,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.MARRON);
+                couleurSelectionnee(Case.Couleur.MARRON);
             }
 
             @Override
@@ -475,7 +476,7 @@ public class PanelJeu extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                couleurSelectionnee(Case.NON_COLORE);
+                couleurSelectionnee(Case.Couleur.NC);
             }
 
             @Override
@@ -619,58 +620,58 @@ public class PanelJeu extends JPanel {
      *
      * @param potSelec Couleur sélectionnée.
      */
-    private void couleurSelectionnee(int potSelec) {
+    private void couleurSelectionnee(Case.Couleur potSelec) {
         couleurChoisie = potSelec;
 
-        if (potSelec == Case.BLANC && grille.getListeCouleurs().contains(Case.BLANC)) {
+        if (potSelec == Case.Couleur.BLANC && grille.getListeCouleurs().contains(Case.Couleur.BLANC)) {
             lblImagePotBlanc.setIcon(new ImageIcon("images/potBlancSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.BLANC)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.BLANC)) {
             lblImagePotBlanc.setIcon(new ImageIcon("images/potBlanc.png"));
         }
 
-        if (potSelec == Case.BLEU && grille.getListeCouleurs().contains(Case.BLEU)) {
+        if (potSelec == Case.Couleur.BLEU && grille.getListeCouleurs().contains(Case.Couleur.BLEU)) {
             lblImagePotBleu.setIcon(new ImageIcon("images/potBleuSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.BLEU)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.BLEU)) {
             lblImagePotBleu.setIcon(new ImageIcon("images/potBleu.png"));
         }
 
-        if (potSelec == Case.JAUNE && grille.getListeCouleurs().contains(Case.JAUNE)) {
+        if (potSelec == Case.Couleur.JAUNE && grille.getListeCouleurs().contains(Case.Couleur.JAUNE)) {
             lblImagePotJaune.setIcon(new ImageIcon("images/potJauneSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.JAUNE)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.JAUNE)) {
             lblImagePotJaune.setIcon(new ImageIcon("images/potJaune.png"));
         }
 
-        if (potSelec == Case.ORANGE && grille.getListeCouleurs().contains(Case.ORANGE)) {
+        if (potSelec == Case.Couleur.ORANGE && grille.getListeCouleurs().contains(Case.Couleur.ORANGE)) {
             lblImagePotOrange.setIcon(new ImageIcon("images/potOrangeSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.ORANGE)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.ORANGE)) {
             lblImagePotOrange.setIcon(new ImageIcon("images/potOrange.png"));
         }
 
-        if (potSelec == Case.ROUGE && grille.getListeCouleurs().contains(Case.ROUGE)) {
+        if (potSelec == Case.Couleur.ROUGE && grille.getListeCouleurs().contains(Case.Couleur.ROUGE)) {
             lblImagePotRouge.setIcon(new ImageIcon("images/potRougeSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.ROUGE)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.ROUGE)) {
             lblImagePotRouge.setIcon(new ImageIcon("images/potRouge.png"));
         }
 
-        if (potSelec == Case.VERT && grille.getListeCouleurs().contains(Case.VERT)) {
+        if (potSelec == Case.Couleur.VERT && grille.getListeCouleurs().contains(Case.Couleur.VERT)) {
             lblImagePotVert.setIcon(new ImageIcon("images/potVertSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.VERT)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.VERT)) {
             lblImagePotVert.setIcon(new ImageIcon("images/potVert.png"));
         }
 
-        if (potSelec == Case.ROSE && grille.getListeCouleurs().contains(Case.ROSE)) {
+        if (potSelec == Case.Couleur.ROSE && grille.getListeCouleurs().contains(Case.Couleur.ROSE)) {
             lblImagePotRose.setIcon(new ImageIcon("images/potRoseSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.ROSE)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.ROSE)) {
             lblImagePotRose.setIcon(new ImageIcon("images/potRose.png"));
         }
 
-        if (potSelec == Case.MARRON && grille.getListeCouleurs().contains(Case.MARRON)) {
+        if (potSelec == Case.Couleur.MARRON && grille.getListeCouleurs().contains(Case.Couleur.MARRON)) {
             lblImagePotMarron.setIcon(new ImageIcon("images/potMarronSelec.png"));
-        } else if (grille.getListeCouleurs().contains(Case.MARRON)) {
+        } else if (grille.getListeCouleurs().contains(Case.Couleur.MARRON)) {
             lblImagePotMarron.setIcon(new ImageIcon("images/potMarron.png"));
         }
 
-        if (potSelec == Case.NON_COLORE && Options.get().getDifficulte() == Difficulte.DIFFICILE) {
+        if (potSelec == Case.Couleur.NC && Options.get().getDifficulte() == Difficulte.DIFFICILE) {
             lblImageGomme.setIcon(new ImageIcon("images/gommeSelec.png"));
         } else if (Options.get().getDifficulte() == Difficulte.DIFFICILE) {
             lblImageGomme.setIcon(new ImageIcon("images/gomme.png"));

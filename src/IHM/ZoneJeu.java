@@ -6,6 +6,9 @@ import Données.Grille;
 import Données.Options;
 import Données.Options.Difficulte;
 import Données.Options.Son;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
@@ -16,9 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 public class ZoneJeu extends JPanel {
 
@@ -311,21 +311,21 @@ public class ZoneJeu extends JPanel {
                 } else if (plateau[i][j].getEtat() == Etat.ANIME) {
                     g.drawImage(imgNonColore, (i + maxIndicesLignes) * tailleCase, (maxIndicesColonnes + j) * tailleCase, tailleCase, tailleCase, this);
 
-                    if (plateau[i][j].getCouleurGrille() == Case.BLANC) {
+                    if (plateau[i][j].getCouleurGrille() == Case.Couleur.BLANC) {
                         tmp = imgBlanc;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.BLEU) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.BLEU) {
                         tmp = imgBleu;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.JAUNE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.JAUNE) {
                         tmp = imgJaune;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ORANGE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ORANGE) {
                         tmp = imgOrange;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ROUGE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ROUGE) {
                         tmp = imgRouge;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.VERT) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.VERT) {
                         tmp = imgVert;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ROSE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ROSE) {
                         tmp = imgRose;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.MARRON) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.MARRON) {
                         tmp = imgMarron;
                     }
 
@@ -345,21 +345,21 @@ public class ZoneJeu extends JPanel {
                 } else if (plateau[i][j].getEtat() == Etat.DRAPEAU) {
                     g.drawImage(imgDrapeau, (i + maxIndicesLignes) * tailleCase, (maxIndicesColonnes + j) * tailleCase, tailleCase, tailleCase, this);
                 } else if (plateau[i][j].getEtat() == Etat.COLORE) {
-                    if (plateau[i][j].getCouleurGrille() == Case.BLANC) {
+                    if (plateau[i][j].getCouleurGrille() == Case.Couleur.BLANC) {
                         tmp = imgBlanc;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.BLEU) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.BLEU) {
                         tmp = imgBleu;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.JAUNE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.JAUNE) {
                         tmp = imgJaune;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ORANGE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ORANGE) {
                         tmp = imgOrange;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ROUGE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ROUGE) {
                         tmp = imgRouge;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.VERT) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.VERT) {
                         tmp = imgVert;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.ROSE) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.ROSE) {
                         tmp = imgRose;
-                    } else if (plateau[i][j].getCouleurGrille() == Case.MARRON) {
+                    } else if (plateau[i][j].getCouleurGrille() == Case.Couleur.MARRON) {
                         tmp = imgMarron;
                     }
                     g.drawImage(tmp, (i + maxIndicesLignes) * tailleCase, (maxIndicesColonnes + j) * tailleCase, tailleCase, tailleCase, this);
