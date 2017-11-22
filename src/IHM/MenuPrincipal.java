@@ -28,7 +28,7 @@ public class MenuPrincipal extends JPanel
         
         
         //Composants du Menu
-        JLabel lblTitre = new JLabel("<html>p<font color=\"#5599BB\">IQ</font>cross</html>");
+        JLabel lblTitre = new JLabel("<html>p<font color=\"#5599BB\">IQ</font>ross</html>");
         lblTitre.setForeground(Color.WHITE);
         lblTitre.setFont(new Font("Calibri", Font.PLAIN, 40));
         JButton btnCommencer = new JButton("Jouer");
